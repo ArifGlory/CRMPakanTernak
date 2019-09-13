@@ -91,4 +91,20 @@ class Produk extends CI_Controller
         print_r($produk);
     }
 
+    function simpanUlasan(){
+        $id_pelanggan   = $this->userSession['id'];
+        $tanggal = date('Y-m-d');
+        $ulasan = $this->input->post('ulasan');
+        $id_produk = $this->input->post('id_produk');
+
+        $data = array(
+            'id_pelanggan'=>$id_pelanggan,
+            'id_produk'=>$id_produk,
+            'ulasan'=>$ulasan,
+            'tanggal_ulasan'=>$tanggal
+        );
+
+        $this->M_Produk->saveUlasan($data);
+    }
+
 }

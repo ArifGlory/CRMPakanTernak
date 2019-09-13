@@ -143,8 +143,11 @@
         $session = $this->session->userdata();
         if (!isset($session['nama'])){
             $nama = "Anda belum login";
+            $foto = base_url()."foto/pelanggan/ava2.png";
         }else{
             $nama = $session['nama'];
+            $foto = $session['foto'];
+
         }
         ?>
         <div class="modal fade" id="modalAkun" tabindex="-1" role="dialog">
@@ -160,7 +163,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div align="center">
-                                        <img width="100" height="100" src="<?php echo base_url();  ?>asset/assets/images/ava2.png"
+                                        <img width="100" height="100" src="<?php echo $foto; ?>"
                                              class="img-radius" alt="User-Profile-Image">
                                     </div>
 
@@ -173,6 +176,8 @@
                                             <br><br>
                                             <a style="width: 100%" type="button" href="<?php echo base_url();?>Utama/daftar" class="btn btn-success waves-effect ">Daftar</a>
                                         <?php }else{ ?>
+                                            <a style="width: 100%" type="button" href="<?php echo base_url();?>User/dashboard" class="btn btn-success waves-effect ">Dashboard Pelanggan</a>
+                                            <br><br>
                                             <a style="width: 100%" type="button" href="<?php echo base_url();?>User/keranjang" class="btn btn-success waves-effect ">Keranjang Belanja</a>
                                             <br><br>
                                             <a style="width: 100%" type="button" href="<?php echo base_url();?>User/logout" class="btn btn-danger waves-effect ">Logout</a>

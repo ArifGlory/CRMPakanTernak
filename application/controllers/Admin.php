@@ -17,6 +17,7 @@ class Admin extends CI_Controller
         $this->load->library(array('form_validation','pagination','session'));
         $this->load->model('The_Model');
         $this->load->model('M_Produk');
+        $this->load->model('M_Transaksi');
 
         $this->userSession = $this->session->userdata();
 
@@ -24,7 +25,11 @@ class Admin extends CI_Controller
         $level      = $this->userSession['level'];
         if($hakAkses != "") {
 
-            if ($level != "admin"){
+            if ($level == "admin" || $level == "pimpinan" ){
+                if ($level == "pimpinan"){
+                    redirect('Laporan');
+                }
+            }else{
                 redirect("Utama");
             }
 
@@ -37,6 +42,7 @@ class Admin extends CI_Controller
         $data['pelanggan']      = $this->The_Model->getPelanggan(5)->result();
         $data['jml_pelanggan']  = $this->The_Model->getPelanggan(0)->num_rows();
         $data['jml_produk']     = $this->M_Produk->getProduk()->num_rows();
+        $data['jml_pesanan']     = $this->M_Transaksi->getAllPesanan()->num_rows();
 
         $this->load->view('part_admin/header');
         $this->load->view('part_admin/sidebar');

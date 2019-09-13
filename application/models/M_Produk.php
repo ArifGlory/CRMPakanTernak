@@ -240,4 +240,49 @@ class M_Produk extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
+    function getUlasan($idProduk){
+        $q = $this->db->query("SELECT * FROM tb_ulasan 
+        INNER JOIN tb_produk 
+            ON (tb_ulasan.id_produk = tb_produk.id_produk)
+        INNER JOIN tb_pelanggan
+            ON (tb_ulasan.id_pelanggan = tb_pelanggan.id_pelanggan)
+            WHERE tb_ulasan.id_produk = $idProduk
+            ORDER BY tb_ulasan.id_ulasan DESC
+            LIMIT 5");
+
+        return $q;
+    }
+
+    function getAllUlasan($idProduk){
+        $q = $this->db->query("SELECT * FROM tb_ulasan 
+        INNER JOIN tb_produk 
+            ON (tb_ulasan.id_produk = tb_produk.id_produk)
+        INNER JOIN tb_pelanggan
+            ON (tb_ulasan.id_pelanggan = tb_pelanggan.id_pelanggan)
+            WHERE tb_ulasan.id_produk = $idProduk
+            ORDER BY tb_ulasan.id_ulasan DESC");
+
+        return $q;
+    }
+
+    function saveUlasan($data){
+        $query =  $this->db->insert('tb_ulasan',$data);
+        $redirect =  base_url()."Utama/detailProduk/".$data['id_produk'];
+
+        if($query){
+            $response['status']     = "success";
+            $response['message']    = "Ulasan dikirim";
+            $response['redirect']   = $redirect;
+
+            $response = json_encode($response);
+            echo $response;
+        }else{
+            $response['status']     = "error";
+            $response['message']    = "Gagal mengirim ulasan, coba lagi nanti";
+
+            $response = json_encode($response);
+            echo $response;
+        }
+    }
 }

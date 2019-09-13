@@ -28,12 +28,17 @@ class The_Model extends CI_Model
            
             $admin = $q->result_array()[0];
             //print_r($admin['nama']);
+            if ($admin['level'] == "super"){
+                $level = "admin";
+            }else{
+                $level = $admin['level'];
+            }
            
             $user = array(
                 'hak_akses' => "true",
                 'nama'      => $admin['nama'],
                 'id'        => $admin['id_admin'],
-                'level'     => "admin"
+                'level'     => $level
             );
 
             $this->session->set_userdata($user);

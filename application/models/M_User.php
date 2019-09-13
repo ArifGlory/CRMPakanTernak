@@ -41,11 +41,16 @@ class M_User extends CI_Model
             $user = $q->result_array()[0];
             //print_r($admin['nama']);
 
+            if ($user['foto'] == ""){
+                $user['foto'] = "ava2.png";
+            }
+
             $user = array(
                 'hak_akses' => "true",
                 'nama'      => $user['nama_pelanggan'],
                 'id'        => $user['id_pelanggan'],
-                'level'        => "pelanggan"
+                'level'     => "pelanggan",
+                'foto'      => base_url()."foto/pelanggan/".$user['foto']
             );
 
             $this->session->set_userdata($user);
@@ -85,6 +90,30 @@ class M_User extends CI_Model
         }
     }
 
+    function updatePassword($id_pelanggan,$password){
+        $data_update = array(
+          'password'=>$password
+        );
+        $redirect       =  base_url()."User/dashboard/";
+
+        $this->db->where('id_pelanggan',$id_pelanggan);
+        $query =  $this->db->update("tb_pelanggan",$data_update);
+        if($query){
+            $response['status']     = "success";
+            $response['message']    = "Data berhasil di update";
+            $response['redirect']   = $redirect;
+
+            $response = json_encode($response);
+            echo $response;
+        }else{
+            $response['status']     = "error";
+            $response['message']    = "Gagal menyimpan, coba lagi nanti";
+
+            $response = json_encode($response);
+            echo $response;
+        }
+    }
+
     function getDataKeranjang($idPelanggan){
         $q = $this->db->query("SELECT * FROM tb_keranjang 
         INNER JOIN tb_produk 
@@ -93,5 +122,51 @@ class M_User extends CI_Model
             ORDER BY tb_produk.id_produk DESC");
 
         return $q;
+    }
+
+    function getSinglePelanggan($idPelanggan){
+        $this->db->where('id_pelanggan',$idPelanggan);
+        $data = $this->db->get("tb_pelanggan");
+        return $data;
+    }
+
+    function updateFoto($idPelangan,$foto){
+        $target_dir = "foto/pelanggan/";
+        $imgType    = substr($foto['type'],strpos( $foto['type'],"/") + 1);
+        $nmfile     = "file_".time() . "." . $imgType;
+        $targetFile = $target_dir . $nmfile;
+        $uploaded   = move_uploaded_file($foto['tmp_name'],$targetFile);
+
+        $data_update = array(
+            'foto'=>$nmfile
+        );
+        $redirect       =  base_url()."User/gantiPassword";
+
+        if($uploaded){
+            $this->db->where("id_pelanggan",$idPelangan);
+            $query =  $this->db->update('tb_pelanggan',$data_update);
+
+            if($query){
+                $response['status']     = "success";
+                $response['message']    = "Data berhasil disimpan";
+                $response['redirect']   = $redirect;
+
+                $response = json_encode($response);
+                echo $response;
+            }else{
+                $response['status']     = "error";
+                $response['message']    = "Gagal menyimpan, coba lagi nanti";
+
+                $response = json_encode($response);
+                echo $response;
+            }
+
+        }else{
+            $response['status']     = "error";
+            $response['message']    = "Upload gagal, coba lagi nanti";
+
+            $response = json_encode($response);
+            echo $response;
+        }
     }
 }

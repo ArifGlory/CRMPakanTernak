@@ -1,4 +1,7 @@
 <!-- Container-fluid starts -->
+<?php
+$totalKeranjang = count($keranjang);
+?>
 <div class="row">
     <div class="container-fluid">
         <div class="row">
@@ -9,10 +12,16 @@
                 <div class="card">
                     <div class="card-header">
                         <h5>Keranjang Belanja</h5>
-                        <a href="<?php echo base_url();?>Utama/produk"
+                        <?php if ($totalKeranjang > 0){ ?>
+                        <a href="<?php echo base_url();?>User/generatePemesanan"
                                 class="btn btn-primary waves-effect waves-light float-right d-inline-block md-trigger"
-                                data-modal="modal-13"><i class="icofont icofont-paper"></i></i> Lanjut ke Pembayaran
+                                data-modal="modal-13"><i class="icofont icofont-paper"></i> Lanjut ke Pembayaran
                         </a>
+                        <?php }else{ ?>
+                            <button id="btnKosong" class="btn btn-primary waves-effect waves-light float-right d-inline-block md-trigger">
+                                <i class="icofont icofont-paper"></i> Keranjang Kosong
+                            </button>
+                        <?php } ?>
                     </div>
                     <div class="card-block">
                         <div class="table-responsive">
@@ -64,11 +73,11 @@
                                                             <label class="text-danger"><?php echo $val->jumlah; ?></label>
                                                         </td>
                                                         <td class="action-icon">
-                                                            <a href="product-list.html#!" class="m-r-15 text-muted"
+                                                            <!--<a href="product-list.html#!" class="m-r-15 text-muted"
                                                                data-toggle="tooltip" data-placement="top" title=""
                                                                data-original-title="Edit"><i
-                                                                        class="icofont icofont-ui-edit"></i></a>
-                                                            <a href="product-list.html#!" class="text-muted"
+                                                                        class="icofont icofont-ui-edit"></i></a>-->
+                                                            <a href="<?php echo base_url(); ?>User/hapusDariKeranjang/<?php echo $val->id_keranjang; ?>" class="text-muted"
                                                                data-toggle="tooltip" data-placement="top" title=""
                                                                data-original-title="Delete"><i
                                                                         class="icofont icofont-delete-alt"></i></a>
@@ -97,5 +106,8 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var myTable = $("#table_keranjang").DataTable();
+        $("#btnKosong").click(function (e) {
+            alert("Keranjang masih kosong");
+        });
     });
 </script>

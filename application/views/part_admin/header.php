@@ -72,21 +72,8 @@
 					</div>
 					<div class="navbar-container container-fluid">
 						<ul class="nav-left">
-							<li class="header-search">
-								<div class="main-search morphsearch-search">
-									<div class="input-group">
-										<span class="input-group-prepend search-close">
-												<i class="feather icon-x input-group-text"></i>
-											</span>
-										<input type="text" class="form-control" placeholder="Cari siswa">
-										<span class="input-group-append search-btn">
-												<i class="feather icon-search input-group-text"></i>
-											</span>
-									</div>
-								</div>
-							</li>
 							<li>
-								<a href="sample-page.html#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
+								<a href="#" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
 										<i class="full-screen feather icon-maximize"></i>
 									</a>
 							</li>

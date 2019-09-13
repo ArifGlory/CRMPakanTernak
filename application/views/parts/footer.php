@@ -1,7 +1,18 @@
 <!-- Required Jquery -->
 
 	<div class="footer">
-        <p class="text-center m-b-0">Copyright &copy; 2019 CRM Pakan Ternak , All rights reserved.</p>
+        <div class="row">
+            <div class="col-md-1"><small></small></div>
+            <div class="col-md-6">
+                <p><i class="icofont icofont-email"></i> Email <span style="display:inline-block; width: 10px;"></span> : crmpakanternak@gmail.com
+                <br>
+                    <i class="icofont icofont-ui-home"></i> Alamat <span style="display:inline-block; width: 10px;"></span> : Kedaton, Bandarlampung
+                    <br>
+                    Ada pertanyaan ? <i class="fa fa-whatsapp"></i>  <a style="color: #00ACED;" target="_blank" href="https://api.whatsapp.com/send?phone=6282281061952&text=Halo Admin Sistem Penjualan Bahan Baku Hasil Bumi">WhatsApp Kami saja</a>
+                </p>
+            </div>
+        </div>
+        <p class="text-center m-b-0">Copyright &copy; 2019 Sistem Penjualan Bahan Baku Hasil Bumi , All rights reserved.</p>
     </div>
 
 	<script type="text/javascript" src="<?php echo base_url();  ?>asset/bower_components/popper.js/js/popper.min.js"></script>

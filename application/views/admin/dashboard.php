@@ -52,9 +52,9 @@
 												<div class="card">
                                                     <div class="card-block text-center">
                                                         <i class="feather icon-briefcase text-c-red d-block f-40"></i>
-                                                        <h4 class="m-t-20"><span class="text-c-red">-</span> Pesanan masuk</h4>
+                                                        <h4 class="m-t-20"><span class="text-c-red"><?php echo  $jml_pesanan; ?></span> Pesanan masuk</h4>
                                                         <p class="m-b-20">Data Pesanan</p>
-                                                        <a class="btn btn-danger btn-sm btn-round">Kelola</a>
+                                                        <a class="btn btn-danger btn-sm btn-round" href="<?php echo base_url();?>Pesanan">Kelola</a>
                                                     </div>
                                                 </div>
 											</div>
