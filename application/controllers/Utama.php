@@ -48,7 +48,12 @@ class Utama extends CI_Controller
     function detailProduk($idProduk){
 
         $session = $this->session->userdata();
-        $foto_pelanggan = $session['foto'];
+        if (isset($session['foto'])){
+            $foto_pelanggan = $session['foto'];
+        }else{
+            $foto_pelanggan = base_url()."foto/pelanggan/ava2.png";
+        }
+
 
         $data['produk'] = $this->M_Produk->getSingleProduk($idProduk)->result_array()[0];
         $data['gambar'] = $this->M_Produk->getGambarProduk($idProduk)->result();
@@ -65,6 +70,12 @@ class Utama extends CI_Controller
     function daftar(){
         $this->load->view('parts/header');
         $this->load->view('user/daftar');
+        $this->load->view('parts/footer');
+    }
+
+    function tentang(){
+        $this->load->view('parts/header');
+        $this->load->view('tentang');
         $this->load->view('parts/footer');
     }
 

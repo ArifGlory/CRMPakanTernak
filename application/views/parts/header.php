@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Crm Pakan Ternak</title>
+	<title>Sistem Penjualan Bahan Baku Hasil Bumi</title>
 	<!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 10]>
@@ -122,7 +122,7 @@
                               </a>
 						  </li>
 						  <li>
-                              <a href="<?php echo base_url(); ?>" class="waves-effect waves-light">
+                              <a href="<?php echo base_url(); ?>Utama/tentang" class="waves-effect waves-light">
                                   Tentang kami
                               </a>
                           </li>

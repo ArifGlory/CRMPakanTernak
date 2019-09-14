@@ -10,6 +10,8 @@
 	<script src="<?php echo base_url();  ?>asset/assets/js/vertical/vertical-layout.min.js"></script>
 	<!-- Custom js -->
 	<script type="text/javascript" src="<?php echo base_url();  ?>asset/assets/js/script.min.js"></script>
+    <!-- Chart js -->
+    <script type="text/javascript" src="<?php echo base_url(); ?>asset/bower_components/chart.js/js/Chart.js"></script>
 
 	<!-- data-table js -->
 	<script src="<?php echo base_url(); ?>asset/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>

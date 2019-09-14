@@ -3,9 +3,9 @@
 <div class="row">
 	<div class="col-sm-12">
 		<br>
-		<h3 style="text-align: center;">Cari Produk</h3>
+		<h3 style="text-align: center;">Produk</h3>
 		<br>
-		<div class="row">
+		<!--<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
 				<div class="input-group input-group-button">
@@ -16,7 +16,7 @@
 				</div>
 			</div>
 			<div class="col-md-3"></div>
-		</div>
+		</div>-->
 
 		<br><br><br>
 	</div>

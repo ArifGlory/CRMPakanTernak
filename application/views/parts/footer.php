@@ -6,7 +6,7 @@
             <div class="col-md-6">
                 <p><i class="icofont icofont-email"></i> Email <span style="display:inline-block; width: 10px;"></span> : crmpakanternak@gmail.com
                 <br>
-                    <i class="icofont icofont-ui-home"></i> Alamat <span style="display:inline-block; width: 10px;"></span> : Kedaton, Bandarlampung
+                    <i class="icofont icofont-ui-home"></i> Alamat <span style="display:inline-block; width: 10px;"></span> : JL. Nakip No. 09, Kota Baru, Kec. Tj. Karang Tim., Kota Bandar Lampung, Lampung 35121
                     <br>
                     Ada pertanyaan ? <i class="fa fa-whatsapp"></i>  <a style="color: #00ACED;" target="_blank" href="https://api.whatsapp.com/send?phone=6282281061952&text=Halo Admin Sistem Penjualan Bahan Baku Hasil Bumi">WhatsApp Kami saja</a>
                 </p>

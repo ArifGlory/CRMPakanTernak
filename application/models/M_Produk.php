@@ -14,6 +14,11 @@ class M_Produk extends CI_Model
         return $data;
     }
 
+    function getSatuan(){
+        $data = $this->db->get("tb_satuan");
+        return $data;
+    }
+
     function getProduk(){
         $q = $this->db->query("SELECT * FROM tb_produk 
         INNER JOIN tb_kategori 
@@ -284,5 +289,14 @@ class M_Produk extends CI_Model
             $response = json_encode($response);
             echo $response;
         }
+    }
+
+    function getLaporanBarang(){
+        $q = $this->db->query("SELECT * FROM tb_produk 
+        INNER JOIN tb_kategori 
+            ON (tb_produk.id_kategori = tb_kategori.id_kategori)
+            ");
+
+        return $q;
     }
 }

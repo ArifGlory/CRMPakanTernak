@@ -31,6 +31,7 @@ class Produk extends CI_Controller
     function index(){
         $data['produk'] = $this->M_Produk->getProduk()->result();
         $data['kategori'] = $this->M_Produk->getKategori()->result();
+        $data['satuan'] = $this->M_Produk->getSatuan()->result();
 
         $this->load->view('part_admin/header');
         $this->load->view('part_admin/sidebar');

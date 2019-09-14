@@ -55,7 +55,7 @@ if (isset($session['level'])){
                                                type="hidden">
                                         <div class="col-lg-12">
                                             <!-- <span class="txt-muted d-inline-block">Kode Produk: <a href="product-detail.html#!"> PRDPKN1 </a> </span>-->
-                                            <span class="float-right">Stok : <?php echo $produk['stok']; ?> </span>
+                                            <span class="float-right">Stok : <?php echo $produk['stok']; ?> <?php echo $produk['satuan']; ?> </span>
                                         </div>
                                         <div class="col-lg-12">
                                             <h4 class="pro-desc"><?php echo $produk['nama_produk']; ?></h4>

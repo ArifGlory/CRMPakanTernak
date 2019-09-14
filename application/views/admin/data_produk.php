@@ -49,6 +49,7 @@
 															<th>Harga</th>
 															<th>Kategori</th>
 															<th>Stok</th>
+															<th>Satuan</th>
 															<th>Deskripsi</th>
 															<th>Aksi</th>
 														</tr>
@@ -79,6 +80,9 @@
 															<td>
 																<?php echo $val->stok; ?>
 															</td>
+                                                            <td>
+                                                                <?php echo $val->satuan; ?>
+                                                            </td>
 															<td>
 																<?php echo $val->deskripsi; ?>
 															</td>
@@ -160,6 +164,16 @@
 
 													</select>
 												</div>
+                                                <div class="form-group">
+                                                    <label for="">Satuan</label>
+                                                    <select required class="form-control" name="satuan" id="satuan">
+                                                        <?php foreach($satuan as $val){ ?>
+                                                            <option value="<?php echo $val->nama_satuan; ?>">
+                                                                <?php echo $val->nama_satuan; ?></option>
+                                                        <?php } ?>
+
+                                                    </select>
+                                                </div>
 											</div>
 									</div>
 								</div>
@@ -222,6 +236,16 @@
                                                         <?php foreach($kategori as $val){ ?>
                                                             <option value="<?php echo $val->id_kategori; ?>">
                                                                 <?php echo $val->nama_kategori; ?></option>
+                                                        <?php } ?>
+
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Satuan</label>
+                                                    <select required class="form-control" name="satuan" id="satuan">
+                                                        <?php foreach($satuan as $val){ ?>
+                                                            <option value="<?php echo $val->nama_satuan; ?>">
+                                                                <?php echo $val->nama_satuan; ?></option>
                                                         <?php } ?>
 
                                                     </select>
